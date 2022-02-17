@@ -3,6 +3,7 @@ package com.reyes.example;
 import org.junit.Test;
 
 import com.reyes.example.des.DesUtil;
+import com.reyes.example.digest.DigestUtil;
 
 
 /**
@@ -10,15 +11,27 @@ import com.reyes.example.des.DesUtil;
  */
 public class AppTest {
 	
+//	@Test
+//	public void demo() throws Exception {
+//		DesUtil DesUtil = new DesUtil();
+//		
+////		原文
+//		String orgData = "今天天氣很好";
+//		DesUtil.desEnc(orgData);
+//	}
+	
 	@Test
-	public void demo() throws Exception {
-		DesUtil DesUtil = new DesUtil();
+	public void demoMD5() throws Exception {
+		DigestUtil DigestUtil = new DigestUtil();
 		
-//		原文
 		String orgData = "今天天氣很好";
-		DesUtil.desEnc(orgData);
+		String algorithm = "MD5";
 		
+		String baseRes = DigestUtil.messageDigestReturnBase64(orgData, algorithm);
+		String hexRes = DigestUtil.messageDigestReturnHEX(orgData, algorithm);
 		
+		System.out.println("[+] baseRes: " + baseRes);
+		System.out.println("[+] hexRes: " + hexRes);
 	}
 	
 }
